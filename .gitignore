@@ -1,0 +1,16 @@
+.gradle
+.idea
+*.iml
+local.properties
+.DS_Store
+.mainframer
+mainframer
+gradlew*
+build
+gradle
+/.locale
+app/staging/
+app/release/
+/*.log
+
+google-services.json
