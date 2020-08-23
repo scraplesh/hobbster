@@ -24,18 +24,16 @@ object Deps {
   const val androidxLifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.androidxLifecycle}"
   const val androidxLifecycleViewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.androidxLifecycle}"
   const val androidxRecyclerView = "androidx.recyclerview:recyclerview:${Versions.androidxRecyclerView}"
-
+  const val firebaseAnalytics = "com.google.firebase:firebase-analytics:${Versions.firebaseAnalytics}"
   const val material = "com.google.android.material:material:${Versions.material}"
   // endregion
   // region Libraries
-  const val adapterDelegatesKotlinDsl = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl:${Versions.adapterDelegates}"
   const val adapterDelegatesKotlinDslViewBinding = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:${Versions.adapterDelegates}"
   const val cicerone = "ru.terrakok.cicerone:cicerone:${Versions.cicerone}"
   const val coil = "io.coil-kt:coil:${Versions.coil}"
-  const val firebaseAnalytics = "com.google.firebase:firebase-analytics:${Versions.firebaseAnalytics}"
   const val flowBinding = "io.github.reactivecircus.flowbinding:flowbinding-android:${Versions.flowBinding}"
   const val koinCore = "org.koin:koin-core:${Versions.koin}"
   const val koinScope = "org.koin:koin-androidx-scope:${Versions.koin}"
-  const val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koin}"
+  const val koinViewModel = "org.koin:koin-androidx-viewmodel:${Versions.koin}"
   // endregion
 }

@@ -7,10 +7,12 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
-abstract class Bindings<T>(private val coroutineScope: CoroutineScope) {
-  abstract fun setup(view: T)
+typealias Connection<In, Out> = Triple<Flow<Out>, FlowCollector<In>, (Out) -> In?>
 
-  protected fun <Out: Any, In: Any> bind(connection: Triple<Flow<Out>, FlowCollector<In>, (Out) -> In?>) {
+abstract class Bindings<U>(private val coroutineScope: CoroutineScope) {
+  abstract fun setup(uiComponent: U)
+
+  protected fun <Out : Any, In : Any> bind(connection: Connection<In, Out>) {
     val (flow, collector, transformer) = connection
     coroutineScope.launch {
       flow.map { value -> transformer(value) }
@@ -20,5 +22,5 @@ abstract class Bindings<T>(private val coroutineScope: CoroutineScope) {
   }
 
   protected infix fun <Out, In> Pair<Flow<Out>, FlowCollector<In>>.using(transformer: (Out) -> In?) =
-    Triple(first, second, transformer)
+    Connection(first, second, transformer)
 }

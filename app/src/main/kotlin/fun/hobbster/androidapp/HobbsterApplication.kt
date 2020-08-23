@@ -5,6 +5,7 @@ import `fun`.hobbster.androidapp.di.koinModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 
 class HobbsterApplication : Application() {
     override fun onCreate() {
@@ -16,7 +17,13 @@ class HobbsterApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@HobbsterApplication)
-            modules(koinModules)
+
+            // region kotiln 1.4 fix
+            // todo: remove after koin version update
+//            modules(koinModules)
+            koin.loadModules(koinModules)
+            koin.createRootScope()
+            // endregion
         }
     }
 }
